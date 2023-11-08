@@ -29,6 +29,7 @@
 .boton{
   width: 10em;
   height: 2em;
+  margin: 1em;
   background-color: blueviolet;
   border-radius: 3px;
 }

@@ -1,15 +1,15 @@
 <section class="principal">
     <div class="buscador">
-        <div class="form-check">
-            <input class="form-check-input" (click)="seleccionar(sectorBuscado)" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>Sector: 
+        <div class="form-check" >
+            <input class="form-check-input" (click)="sectorORepo()" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>Sector: 
             <select class="seleccionar" [(ngModel)] = "sectorBuscado">  
                 <option value="Sector 1">Sector 1</option>
                 <option value="Sector 2">Sector 2</option>
                 <option value="Sector 3">Sector 3</option>
               </select>
           </div>
-          <div class="form-check">
-            <input class="form-check-input" (click)="seleccionar(repoBuscado)" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">Repositor:
+          <div class="form-check" >
+            <input class="form-check-input" (click)="sectorORepo()" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">Repositor:
             <select class="seleccionar" [(ngModel)] = "repoBuscado">  
                 <option value="Repositor 1">Repositor 1</option>
                 <option value="Repositor 2">Repositor 2</option>

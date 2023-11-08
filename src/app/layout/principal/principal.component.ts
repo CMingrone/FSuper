@@ -10,11 +10,19 @@ export class PrincipalComponent {
   sectorBuscado : string = ""
   repoBuscado : string = ""
   palabraABuscar : string = ""
+  sector : boolean = true
+  repo : boolean = false
 
   buscar(){
+    if (this.sector){
+      this.palabraABuscar=this.sectorBuscado
+    }else {
+      this.palabraABuscar=this.repoBuscado
+    }
     console.log(this.palabraABuscar)
   }
-  seleccionar(valor : string){
-    this.palabraABuscar = valor
+  sectorORepo(){
+    this.sector = !this.sector
+    this.repo = !this.repo
   }
 }
