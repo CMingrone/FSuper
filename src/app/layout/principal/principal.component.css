@@ -1,0 +1,12 @@
+.principal{
+    background-image: url(/assets/image/super.jpg);
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 10%;
+  }
