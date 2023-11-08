@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CardProductoComponent } from './components/card-producto/card-producto.component';
 import { PrincipalComponent } from './layout/principal/principal.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { PrincipalComponent } from './layout/principal/principal.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

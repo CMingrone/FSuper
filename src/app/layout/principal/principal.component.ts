@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class PrincipalComponent {
 
+  sectorBuscado : string = ""
+  repoBuscado : string = ""
+  palabraABuscar : string = ""
+
+  buscar(){
+    console.log(this.palabraABuscar)
+  }
+  seleccionar(valor : string){
+    this.palabraABuscar = valor
+  }
 }
