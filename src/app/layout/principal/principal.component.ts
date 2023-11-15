@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ServicioPrincipalService } from 'src/app/service/servicio-principal.service';
 
 @Component({
   selector: 'app-principal',
@@ -7,6 +8,8 @@ import { Component } from '@angular/core';
 })
 export class PrincipalComponent {
 
+  constructor(public servicioPrincipalService : ServicioPrincipalService){}
+
   sectorBuscado : string = ""
   repoBuscado : string = ""
   palabraABuscar : string = ""
@@ -14,6 +17,9 @@ export class PrincipalComponent {
   repo : boolean = false
 
   buscar(){
+//prueba del service Click en "Buscar"///
+    this.servicioPrincipalService.traerProductos()
+///////////////////////////////////////////////
     if (this.sector){
       this.palabraABuscar=this.sectorBuscado
     }else {
