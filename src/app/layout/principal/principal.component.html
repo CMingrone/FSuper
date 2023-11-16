@@ -3,17 +3,14 @@
         <div class="form-check" >
             <input class="form-check-input" (click)="sectorORepo()" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>Sector: 
             <select class="seleccionar" [(ngModel)] = "sectorBuscado">  
-                <option value="Sector 1">Sector 1</option>
-                <option value="Sector 2">Sector 2</option>
-                <option value="Sector 3">Sector 3</option>
+                <option value="{{sector.desc_sector}}" *ngFor = "let sector of sectores">{{sector.desc_sector}}</option>
               </select>
           </div>
           <div class="form-check" >
             <input class="form-check-input" (click)="sectorORepo()" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">Repositor:
             <select class="seleccionar" [(ngModel)] = "repoBuscado">  
-                <option value="Repositor 1">Repositor 1</option>
-                <option value="Repositor 2">Repositor 2</option>
-                <option value="Repositor 3">Repositor 3</option>
+                <option value="{{Repo.nombre}}" *ngFor = "let Repo of repositores">{{Repo.nombre}}</option>
+                
               </select>
           </div>
   
@@ -22,36 +19,11 @@
   
     <div class="container  scroll">
       <div class="row">
-  <!--
-        <div *ngFor="let producto of listaDeProductos" class="col-6">
-          <app-card-producto>
-          </app-card-producto>
-      </div>
-     -->
-        <div class="col-6">
-            <app-card-producto></app-card-producto>
+  
+        <div *ngFor="let producto of productos" class="col-6">
+          <app-card-producto [prod] = "producto"></app-card-producto>
         </div>
-        <div class="col-6">
-            <app-card-producto></app-card-producto>
-        </div>
-         <div class="col-6">
-            <app-card-producto></app-card-producto>
-        </div>
-        <div class="col-6">
-          <app-card-producto></app-card-producto>
-      </div>
-      <div class="col-6">
-        <app-card-producto></app-card-producto>
-    </div>
-    <div class="col-6">
-      <app-card-producto></app-card-producto>
-  </div>
-  <div class="col-6">
-    <app-card-producto></app-card-producto>
-  </div>
-  <div class="col-6">
-    <app-card-producto></app-card-producto>
-  </div>
+  
       </div>
   
     </div>

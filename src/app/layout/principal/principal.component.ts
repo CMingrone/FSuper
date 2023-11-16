@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Producto } from 'src/app/model/producto';
+import { Repositor } from 'src/app/model/repositor';
+import { Sector } from 'src/app/model/sector';
 import { ServicioPrincipalService } from 'src/app/service/servicio-principal.service';
 
 @Component({
@@ -6,27 +9,43 @@ import { ServicioPrincipalService } from 'src/app/service/servicio-principal.ser
   templateUrl: './principal.component.html',
   styleUrls: ['./principal.component.css']
 })
-export class PrincipalComponent {
+export class PrincipalComponent implements OnInit  {
 
-  constructor(public servicioPrincipalService : ServicioPrincipalService){}
+  productos! : Producto[]
+  repositores! : Repositor[]
+  sectores! : Sector[]
 
-  sectorBuscado : string = ""
-  repoBuscado : string = ""
+
+  constructor(public servicioPrincipalService : ServicioPrincipalService){
+
+    
+  }
+  async ngOnInit() {
+    this.repositores = await this.servicioPrincipalService.traerRepositores()
+    this.sectores = await this.servicioPrincipalService.traerSectores()
+  }
+
+  
+  sectorBuscado : string = "Verduleria"
+  repoBuscado : string = "Lionel Messi"
   palabraABuscar : string = ""
   sector : boolean = true
   repo : boolean = false
 
-  buscar(){
-//prueba del service Click en "Buscar"///
-    this.servicioPrincipalService.traerProductos()
-///////////////////////////////////////////////
+  async buscar(){
     if (this.sector){
       this.palabraABuscar=this.sectorBuscado
+      this.productos = await this.servicioPrincipalService.traerProductos(this.palabraABuscar)
+      //Aca PalabraABuscar se tiene que usar para la query de busqueda de porducto por sector
     }else {
       this.palabraABuscar=this.repoBuscado
+      //Aca PalabraABuscar se tiene que usar para la query de busqueda de porducto por Repositor
+      this.productos = await this.servicioPrincipalService.traerProductos(this.palabraABuscar)
     }
     console.log(this.palabraABuscar)
   }
+
+
   sectorORepo(){
     this.sector = !this.sector
     this.repo = !this.repo
