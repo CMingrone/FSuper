@@ -7,12 +7,14 @@ import { CardProductoComponent } from './components/card-producto/card-producto.
 import { PrincipalComponent } from './layout/principal/principal.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ModalCompraComponent } from './components/modal-compra/modal-compra.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CardProductoComponent,
-    PrincipalComponent
+    PrincipalComponent,
+    ModalCompraComponent
   ],
   imports: [
     BrowserModule,
