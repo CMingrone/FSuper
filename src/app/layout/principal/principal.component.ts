@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CarroProducto } from 'src/app/model/carroProducto';
 import { Producto } from 'src/app/model/producto';
 import { Repositor } from 'src/app/model/repositor';
 import { Sector } from 'src/app/model/sector';
@@ -14,6 +15,7 @@ export class PrincipalComponent implements OnInit  {
   productos! : Producto[]
   repositores! : Repositor[]
   sectores! : Sector[]
+  carro! : CarroProducto[]
 
 
   constructor(public servicioPrincipalService : ServicioPrincipalService){
@@ -49,5 +51,13 @@ export class PrincipalComponent implements OnInit  {
   sectorORepo(){
     this.sector = !this.sector
     this.repo = !this.repo
+  }
+
+
+  async traerProductosDelCarro(){
+    this.carro = await this.servicioPrincipalService.traerProductosDelCarro()
+  }
+  vaciarCarro(){
+    this.servicioPrincipalService.vaciarCarro()
   }
 }

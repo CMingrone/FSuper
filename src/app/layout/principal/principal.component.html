@@ -16,7 +16,7 @@
   
       <button class="boton" (click)="buscar()">Buscar</button>
 
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#carro">
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#carro" (click)="traerProductosDelCarro()">
             <i class="fa fa-shopping-cart icono" aria-hidden="true" ></i>
           </button>
                 
@@ -48,12 +48,12 @@
                           <strong>Cantidad</strong>
                         </div>
                       </div>
-                      <div class="row" *ngFor="let producto of productos" >
+                      <div class="row" *ngFor="let producto of carro" >
                         <div class="col">
                           {{producto.nombre}}
                         </div>
                         <div class="col-3">
-                          1
+                          {{producto.cantidad}}
                         </div>
                       </div>
                     </div>
@@ -62,7 +62,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary">Vaciar Carro</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="vaciarCarro()">Vaciar Carro</button>
       </div>
     </div>
   </div>
