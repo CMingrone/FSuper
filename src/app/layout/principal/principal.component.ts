@@ -35,12 +35,12 @@ export class PrincipalComponent implements OnInit  {
   async buscar(){
     if (this.sector){
       this.palabraABuscar=this.sectorBuscado
-      this.productos = await this.servicioPrincipalService.traerProductos(this.palabraABuscar)
+      this.productos = await this.servicioPrincipalService.getProductosBySector(this.palabraABuscar)
       //Aca PalabraABuscar se tiene que usar para la query de busqueda de porducto por sector
     }else {
       this.palabraABuscar=this.repoBuscado
       //Aca PalabraABuscar se tiene que usar para la query de busqueda de porducto por Repositor
-      this.productos = await this.servicioPrincipalService.traerProductos(this.palabraABuscar)
+      this.productos = await this.servicioPrincipalService.getByNombreRepositor(this.palabraABuscar)
     }
     console.log(this.palabraABuscar)
   }

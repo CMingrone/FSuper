@@ -11,29 +11,30 @@ import { Repositor } from '../model/repositor';
 })
 export class ServicioPrincipalService{
 
-  constructor(private http: HttpClient) {
-    console.log('El servicio esta corriendo')
-  
-  }
+  constructor(private http: HttpClient){}
+
   producto = new Producto(0,0,0,"","")
 
-  async traerProductos(palabraFiltro : String) {
-
-    const producto$ = this.http.get<Producto[]>(REST_SERVER_URL + "/producto/getAll/" + palabraFiltro)
+  async getProductosBySector(palabraFiltro : String) {
+    const producto$ = this.http.get<Producto[]>(REST_SERVER_URL + "/producto/getByDescSector/" + palabraFiltro)
     const producto = await lastValueFrom(producto$)
-    console.log("Hay que hacer la querie en el back xq esta trayendo todos")
-    console.log(this.producto)
     return producto
   }
-  async traerSectores() {
 
+  async getByNombreRepositor(palabraFiltro : String) {
+    const producto$ = this.http.get<Producto[]>(REST_SERVER_URL + "/producto/getByNombreRepositor/" + palabraFiltro)
+    const producto = await lastValueFrom(producto$)
+    return producto
+  }
+  
+  async traerSectores() {
     const sector$ = this.http.get<Sector[]>(REST_SERVER_URL + "/sector/getAll")
     const sector = await lastValueFrom(sector$)
     console.log(sector)
     return sector
   }
+  
   async traerRepositores() {
-
     const repo$ = this.http.get<Repositor[]>(REST_SERVER_URL + "/repositor/getAll")
     const repo = await lastValueFrom(repo$)
     console.log(repo)
