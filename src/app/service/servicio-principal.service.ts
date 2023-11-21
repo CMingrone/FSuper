@@ -18,6 +18,17 @@ export class ServicioPrincipalService{
   }
   producto = new Producto(0,0,0,"","")
 
+  async getProductosBySector(palabraFiltro : String) {
+    const producto$ = this.http.get<Producto[]>(REST_SERVER_URL + "/producto/getByDescSector/" + palabraFiltro)
+    const producto = await lastValueFrom(producto$)
+    return producto
+  }
+
+  async getByNombreRepositor(palabraFiltro : String) {
+    const producto$ = this.http.get<Producto[]>(REST_SERVER_URL + "/producto/getByNombreRepositor/" + palabraFiltro)
+    return await lastValueFrom(producto$)
+  }
+
   async traerProductos(palabraFiltro : String) {
 
     const producto$ = this.http.get<Producto[]>(REST_SERVER_URL + "/producto/getAll/" + palabraFiltro)
