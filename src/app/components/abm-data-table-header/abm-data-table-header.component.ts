@@ -20,8 +20,8 @@ export class AbmDataTableHeaderComponent implements OnInit {
   @Input()
   sectores! : Sector[]
 
-  repositorElegido : string = ""
-  sectorElegido : string = ""
+  repositorElegido : string = "Seleccionar Repositor"
+  sectorElegido : string = "Seleccionar Sector"
 
   @Input()
   listaItems : Array<any> = []

@@ -2,12 +2,16 @@
     <p>Cantidad de registros: {{cantidadRegistros.length}}</p>
 
     <div class="form-check" >
+        <h5>Sector</h5> 
         <select class="seleccionar" name="sectorElegido" (change)="getProductosBySector()" [(ngModel)]="sectorElegido">  
+            <option selected hidden value="Seleccionar Sector">Seleccionar Sector</option>
             <option *ngFor="let sector of sectores" [value]="sector.desc_sector">{{sector.desc_sector}}</option>
         </select>
     </div>
     <div class="form-check" >
+        <h5>Repositor</h5> 
         <select class="seleccionar" name="repositorElegido" (change)="getProductosByNombreRepositor()" [(ngModel)]="repositorElegido">  
+            <option selected hidden value="Seleccionar Repositor">Seleccionar Repositor</option>
             <option *ngFor="let repositor of repositores" [value]="repositor.nombre">{{repositor.nombre}}</option>
         </select>
     </div>
