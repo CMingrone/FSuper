@@ -13,7 +13,7 @@ export class ServicioPrincipalService{
 
   constructor(private http: HttpClient){}
 
-  producto = new Producto(0,0,0,"","")
+  producto = new Producto(0,"","","")
 
   async getProductosBySector(palabraFiltro : String) {
     const producto$ = this.http.get<Producto[]>(REST_SERVER_URL + "/producto/getByDescSector/" + palabraFiltro)
@@ -23,21 +23,16 @@ export class ServicioPrincipalService{
 
   async getByNombreRepositor(palabraFiltro : String) {
     const producto$ = this.http.get<Producto[]>(REST_SERVER_URL + "/producto/getByNombreRepositor/" + palabraFiltro)
-    const producto = await lastValueFrom(producto$)
-    return producto
+    return await lastValueFrom(producto$)
   }
   
   async traerSectores() {
     const sector$ = this.http.get<Sector[]>(REST_SERVER_URL + "/sector/getAll")
-    const sector = await lastValueFrom(sector$)
-    console.log(sector)
-    return sector
+    return await lastValueFrom(sector$)
   }
   
   async traerRepositores() {
     const repo$ = this.http.get<Repositor[]>(REST_SERVER_URL + "/repositor/getAll")
-    const repo = await lastValueFrom(repo$)
-    console.log(repo)
-    return repo
+    return await lastValueFrom(repo$)
   }
 }

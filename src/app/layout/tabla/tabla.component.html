@@ -1,0 +1,24 @@
+<div class="abm">
+
+    <app-abm-data-table-header
+        (outputCurrentRegistro)="updateCurrentRegistro($event)"
+        (outputGetProductosBySector)="getProductosBySector($event)"
+        (outputGetProductosByNombreRepositor)="getByNombreRepositor($event)"
+        [repositores]="repositores"
+        [sectores]="sectores"
+        [listaItems]="listaItems"
+        [cantidadRegistros]="cantidadRegistros"
+        [cantidadPaginas]="cantidadPaginas">
+    </app-abm-data-table-header>
+
+    <app-abm-data-table
+        [mostrarPrecio]="false"
+        [nombreItemModal] = "nombreItemModal"
+        [tituloModal] = "tituloModal"
+        [botonModal] = "botonModal"
+        [listaItems]="productos"
+        [currentRegistro]="currentRegistro"
+        [buscar]="buscar">
+    </app-abm-data-table>
+
+</div>

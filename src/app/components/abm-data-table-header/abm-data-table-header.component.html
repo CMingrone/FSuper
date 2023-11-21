@@ -1,0 +1,25 @@
+<div class="header_abm">
+    <p>Cantidad de registros: {{cantidadRegistros.length}}</p>
+
+    <div class="form-check" >
+        <select class="seleccionar" name="sectorElegido" (change)="getProductosBySector()" [(ngModel)]="sectorElegido">  
+            <option *ngFor="let sector of sectores" [value]="sector.desc_sector">{{sector.desc_sector}}</option>
+        </select>
+    </div>
+    <div class="form-check" >
+        <select class="seleccionar" name="repositorElegido" (change)="getProductosByNombreRepositor()" [(ngModel)]="repositorElegido">  
+            <option *ngFor="let repositor of repositores" [value]="repositor.nombre">{{repositor.nombre}}</option>
+        </select>
+    </div>
+
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item"><button class="page-link" (click)="atras()">Atras</button></li>
+            <li class="page-item" *ngFor="let pagina of cantidadPaginas; let i = index">
+                <button class="page-link" [ngClass]="(i + 1 == currentPagina) ? 'active': ''" (click)="irPagina(i + 1)">{{i + 1}}</button>
+            </li>
+            <li class="page-item"><button class="page-link" (click)="siguiente()">Siguiente</button></li>
+        </ul>
+    </nav>
+
+</div>
