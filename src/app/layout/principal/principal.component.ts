@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Producto } from 'src/app/model/producto';
 import { Repositor } from 'src/app/model/repositor';
 import { Sector } from 'src/app/model/sector';
@@ -16,7 +17,7 @@ export class PrincipalComponent implements OnInit  {
   sectores! : Sector[]
 
 
-  constructor(public servicioPrincipalService : ServicioPrincipalService){
+  constructor(public servicioPrincipalService : ServicioPrincipalService, private router: Router){
 
     
   }
@@ -49,5 +50,9 @@ export class PrincipalComponent implements OnInit  {
   sectorORepo(){
     this.sector = !this.sector
     this.repo = !this.repo
+  }
+
+  verTabla(){
+    this.router.navigateByUrl('/tabla')
   }
 }

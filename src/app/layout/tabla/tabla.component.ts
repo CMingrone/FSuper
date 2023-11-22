@@ -50,4 +50,6 @@ export class TablaComponent {
   updateCantidadPaginas(cantidadPaginas: number[]){
     this.cantidadPaginas = cantidadPaginas
   }
+
+
 }

@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { Repositor } from 'src/app/model/repositor';
 import { Sector } from 'src/app/model/sector';
 
@@ -9,6 +10,8 @@ import { Sector } from 'src/app/model/sector';
 })
 export class AbmDataTableHeaderComponent implements OnInit {
 
+  constructor(private router: Router){}
+  
   buscar : string = ''
   currentRegistro : number = 0
   currentPagina : number = 1
@@ -41,8 +44,7 @@ export class AbmDataTableHeaderComponent implements OnInit {
   @Output() 
   outputGetProductosByNombreRepositor = new EventEmitter<string>();
 
-  constructor(){}
-  
+
   ngOnInit() {
 
   }
@@ -92,5 +94,7 @@ export class AbmDataTableHeaderComponent implements OnInit {
   getProductosByNombreRepositor() {
     this.outputGetProductosByNombreRepositor.emit(this.repositorElegido);
   }
-
+  verCard(){
+    this.router.navigateByUrl('/')
+  }
 }
