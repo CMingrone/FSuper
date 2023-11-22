@@ -33,8 +33,7 @@ export class AbmDataTableHeaderComponent implements OnInit {
   cantidadPaginas : number[] = []
 
   @Input()
-  cantidadRegistros : number[] = []
-
+  cantidadRegistros : number = 0
   @Output() 
   outputCurrentRegistro = new EventEmitter<number>();
 

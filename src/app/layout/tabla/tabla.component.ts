@@ -18,7 +18,7 @@ export class TablaComponent {
   
   buscar = ''
   listaItems : Array<any> = []
-  cantidadRegistros : number[] = []
+  cantidadRegistros : number = 0
   cantidadPaginas : number[] = []
   currentRegistro : number = 0
   nombreItemModal = ""
@@ -31,16 +31,20 @@ export class TablaComponent {
     this.repositores = await this.servicioPrincipalService.traerRepositores()
     this.sectores = await this.servicioPrincipalService.traerSectores()
 
-    this.cantidadRegistros = new Array<number>(this.listaItems.length)
+    
     this.cantidadPaginas = new Array<number>(Math.trunc(this.listaItems.length / 11) + 1)
   }
 
   async getProductosBySector(palabraABuscar : any){
     this.productos = await this.servicioPrincipalService.getProductosBySector(palabraABuscar)
+    this.listaItems = this.productos
+    this.cantidadRegistros = this.listaItems.length
   }
 
   async getByNombreRepositor(palabraABuscar : any){
     this.productos = await this.servicioPrincipalService.getByNombreRepositor(palabraABuscar)
+    this.listaItems = this.productos
+    this.cantidadRegistros = this.listaItems.length
   }
 
   updateCurrentRegistro(registro: number){
