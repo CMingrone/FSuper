@@ -16,7 +16,7 @@ export class ServicioPrincipalService{
     console.log('El servicio esta corriendo')
   
   }
-  producto = new Producto(0,0,0,"","")
+  producto = new Producto(0,"","","")
 
   async getProductosBySector(palabraFiltro : String) {
     const producto$ = this.http.get<Producto[]>(REST_SERVER_URL + "/producto/getByDescSector/" + palabraFiltro)
